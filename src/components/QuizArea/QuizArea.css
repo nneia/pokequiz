@@ -1,0 +1,77 @@
+.quiz-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  padding: 30px;
+}
+.image-box {
+  width: 50%;
+  margin-right: 3%;
+  box-sizing: border-box;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+.quiz-box {
+  width: 47%;
+  position: relative;
+}
+.pokemon-img {
+  width: 100%;
+}
+.question-header {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+.answers-box {
+  width: 100%;
+}
+.answer-choice {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.6vw;
+  margin-bottom: 10px;
+  background-color: #313167;
+  border-radius: 6px;
+  color: white;
+  transition: 650ms;
+  cursor: pointer;
+  display: flex;
+}
+.answer-choice:hover {
+  opacity: 0.8;
+}
+.checkbox {
+  margin-right: 10px;
+  background-color: white;
+}
+.quiz-actions {
+  display: flex;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+.action-btn {
+  width: 48%;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 1vw;
+  background-color: #645aa4;
+  color: white;
+  font-weight: bold;
+  margin-right: 4%;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 350ms;
+}
+.action-btn:nth-child(2) {
+  margin-right: 0 !important;
+}
+.action-btn:hover {
+  opacity: 0.6;
+}
