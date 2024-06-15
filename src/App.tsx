@@ -3,8 +3,9 @@ import "./App.css";
 import Header from "./components/Header/Header.tsx";
 import QuizArea from "./components/QuizArea/QuizArea.tsx";
 import ResultsArea from "./components/ResultsArea/ResultsArea.tsx";
+import { QuestionPrompt, Answer } from "./appTypes.ts";
 
-const initialQuestions = [
+const initialQuestions: QuestionPrompt[] = [
   {
     id: 1,
     image: "src/assets/Pikachu.png",
@@ -69,10 +70,10 @@ const initialQuestions = [
 
 function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState([]);
-  const [showResults, setShowResults] = useState(false);
+  const [answers, setAnswers] = useState<Answer[]>([]);
+  const [showResults, setShowResults] = useState<boolean>(false);
 
-  const handleAnswer = answer => {
+  const handleAnswer = (answer: string) => {
     const newAnswers = [...answers];
     newAnswers[currentQuestionIndex] = {
       questionId: initialQuestions[currentQuestionIndex].id,

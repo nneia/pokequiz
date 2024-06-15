@@ -1,6 +1,11 @@
+import React from "react";
 import "./Header.css";
+import { HeaderProps } from "../../appTypes.ts";
 
-function Header({ numberOfQuestions, currentQuestionIndex }) {
+const Header: React.FC<HeaderProps> = ({
+  numberOfQuestions,
+  currentQuestionIndex,
+}) => {
   return (
     <div className="header-container">
       <h1 className="page-title">POKEQUIZ - guess the Pokemon name</h1>
@@ -16,6 +21,6 @@ function Header({ numberOfQuestions, currentQuestionIndex }) {
       </div>
     </div>
   );
-}
+};
 
 export default Header;

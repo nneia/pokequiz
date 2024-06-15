@@ -1,13 +1,15 @@
+import React from "react";
 import "./ResultsArea.css";
+import { ResultsAreaProps } from "../../appTypes.ts";
 
-function ResultsArea({ questions, answers }) {
+const ResultsArea: React.FC<ResultsAreaProps> = ({ questions, answers }) => {
   const score = answers.filter(answer => {
     const question = questions.find(q => q.id === answer.questionId);
-    return question.correctAnswer === answer.answer;
+    return question?.correctAnswer === answer.answer;
   }).length;
 
   function refreshPage() {
-    window.location.reload(false);
+    window.location.reload();
   }
 
   return (
@@ -34,14 +36,14 @@ function ResultsArea({ questions, answers }) {
       <div className="questions-results">
         {answers.map((answer, index) => {
           const question = questions.find(q => q.id === answer.questionId);
-          const correct = question.correctAnswer === answer.answer;
+          const correct = question?.correctAnswer === answer.answer;
           return (
             <div key={index} className="question">
               <p>
                 Question {index + 1}:{" "}
                 {correct
                   ? "Correct"
-                  : `Wrong. The correct answer is ${question.correctAnswer}`}
+                  : `Wrong. The correct answer is ${question?.correctAnswer}`}
               </p>
             </div>
           );
@@ -52,6 +54,6 @@ function ResultsArea({ questions, answers }) {
       </p>
     </div>
   );
-}
+};
 
 export default ResultsArea;

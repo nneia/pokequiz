@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
 import "./QuizArea.css";
+import { QuizAreaProps } from "../../appTypes.ts";
 
-function QuizArea({
+const QuizArea: React.FC<QuizAreaProps> = ({
   question,
   currentQuestionIndex,
   handleAnswer,
   handleNext,
   handleBack,
-}) {
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
+}) => {
+  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
 
   useEffect(() => {
     // Reset selected answer when the question changes
     setSelectedAnswer(null);
   }, [currentQuestionIndex]);
 
-  const handleSelect = option => {
+  const handleSelect = (option: string) => {
     setSelectedAnswer(option);
     handleAnswer(option);
   };
@@ -53,6 +54,6 @@ function QuizArea({
       </div>
     </div>
   );
-}
+};
 
 export default QuizArea;
