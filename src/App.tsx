@@ -73,7 +73,7 @@ function App() {
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [showResults, setShowResults] = useState<boolean>(false);
 
-  const handleAnswer = (answer: string) => {
+  const handleAnswer = (answer: Answer["answer"]) => {
     const newAnswers = [...answers];
     newAnswers[currentQuestionIndex] = {
       questionId: initialQuestions[currentQuestionIndex].id,
