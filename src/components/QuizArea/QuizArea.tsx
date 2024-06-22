@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./QuizArea.css";
+import useAnimatedOuizOptions from "../../hooks/useAnimationQuizOptions";
 import { QuizAreaProps } from "../../appTypes.ts";
 
 const QuizArea: React.FC<QuizAreaProps> = ({
@@ -10,6 +11,10 @@ const QuizArea: React.FC<QuizAreaProps> = ({
   handleBack,
 }) => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+
+  const animatedOptions = useAnimatedOuizOptions({
+    options: question.options,
+  });
 
   useEffect(() => {
     // Reset selected answer when the question changes
@@ -30,7 +35,12 @@ const QuizArea: React.FC<QuizAreaProps> = ({
         <h2 className="question-header">Question {currentQuestionIndex + 1}</h2>
         <div className="answers-box">
           {question.options.map((option, index) => (
-            <label key={index} className="answer-choice">
+            <label
+              key={index}
+              className={`answer-choice ${
+                animatedOptions.includes(option) ? "animate-option" : ""
+              }`}
+            >
               <input
                 type="radio"
                 name={`question-${currentQuestionIndex}`}

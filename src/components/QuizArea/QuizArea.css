@@ -45,6 +45,10 @@
 .answer-choice:hover {
   opacity: 0.8;
 }
+.answer-choice.animate-option {
+  opacity: 1;
+  transform: translateY(0);
+}
 .checkbox {
   margin-right: 10px;
   background-color: white;
