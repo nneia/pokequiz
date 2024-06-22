@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./QuizArea.css";
-import useAnimatedOuizOptions from "../../hooks/useAnimationQuizOptions";
+import useAnimatedOuizOptions from "../../hooks/useAnimationQuizOptions.tsx";
 import { QuizAreaProps } from "../../appTypes.ts";
 
 const QuizArea: React.FC<QuizAreaProps> = ({

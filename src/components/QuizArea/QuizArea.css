@@ -41,6 +41,7 @@
   transition: 650ms;
   cursor: pointer;
   display: flex;
+  opacity: 0;
 }
 .answer-choice:hover {
   opacity: 0.8;
