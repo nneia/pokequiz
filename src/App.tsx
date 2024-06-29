@@ -72,6 +72,9 @@ function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [showResults, setShowResults] = useState<boolean>(false);
+  const [validationMessage, setValidationMessage] = useState<string | null>(
+    null
+  );
 
   const handleAnswer = (answer: Answer["answer"]) => {
     const newAnswers = [...answers];
@@ -83,6 +86,16 @@ function App() {
   };
 
   const handleNext = () => {
+    if (
+      !answers[currentQuestionIndex] ||
+      !answers[currentQuestionIndex].answer
+    ) {
+      setValidationMessage("Please answer before proceeding.");
+      return;
+    }
+    //Resetting validation message
+    setValidationMessage(null);
+
     if (currentQuestionIndex < initialQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
@@ -91,6 +104,9 @@ function App() {
   };
 
   const handleBack = () => {
+    //Resetting validation message
+    setValidationMessage(null);
+
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
     }
@@ -109,6 +125,8 @@ function App() {
           handleAnswer={handleAnswer}
           handleNext={handleNext}
           handleBack={handleBack}
+          savedAnswers={answers}
+          validationMessage={validationMessage}
         />
       ) : (
         <ResultsArea questions={initialQuestions} answers={answers} />

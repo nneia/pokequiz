@@ -18,6 +18,8 @@ export interface QuizAreaProps {
   handleAnswer: (answer: string) => void;
   handleNext: () => void;
   handleBack: () => void;
+  savedAnswers: Answer[];
+  validationMessage: string | null;
 }
 export interface ResultsAreaProps {
   questions: QuestionPrompt[];

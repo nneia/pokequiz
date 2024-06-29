@@ -15,7 +15,7 @@ const useAnimatedOuizOptions = ({ options }: UseAnimationQuizOptionsProps) => {
     options.forEach((option, index) => {
       setTimeout(() => {
         setAnimatedOptions(prev => [...prev, option]);
-      }, index * 350);
+      }, index * 150);
     });
   }, [options]);
 

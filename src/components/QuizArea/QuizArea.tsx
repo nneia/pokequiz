@@ -9,6 +9,8 @@ const QuizArea: React.FC<QuizAreaProps> = ({
   handleAnswer,
   handleNext,
   handleBack,
+  savedAnswers,
+  validationMessage,
 }) => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
 
@@ -17,9 +19,9 @@ const QuizArea: React.FC<QuizAreaProps> = ({
   });
 
   useEffect(() => {
-    // Reset selected answer when the question changes
-    setSelectedAnswer(null);
-  }, [currentQuestionIndex]);
+    // Set selected answer to the previously selected answer when the question changes
+    setSelectedAnswer(savedAnswers[currentQuestionIndex]?.answer || null);
+  }, [currentQuestionIndex, savedAnswers]);
 
   const handleSelect = (option: string) => {
     setSelectedAnswer(option);
@@ -47,7 +49,7 @@ const QuizArea: React.FC<QuizAreaProps> = ({
                 checked={selectedAnswer === option}
                 onChange={() => handleSelect(option)}
               />
-              <p>{option}</p>
+              <p className="opt-text">{option}</p>
             </label>
           ))}
         </div>
@@ -61,6 +63,10 @@ const QuizArea: React.FC<QuizAreaProps> = ({
             Next
           </p>
         </div>
+
+        {validationMessage && (
+          <div className="validation-message">{validationMessage}</div>
+        )}
       </div>
     </div>
   );

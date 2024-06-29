@@ -80,3 +80,10 @@
 .action-btn:hover {
   opacity: 0.6;
 }
+.validation-message {
+  color: red;
+  font-weight: bold;
+}
+.opt-text {
+  margin-left: 10px;
+}
