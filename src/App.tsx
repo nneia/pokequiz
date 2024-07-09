@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header/Header.tsx";
 import QuizArea from "./components/QuizArea/QuizArea.tsx";
@@ -76,6 +76,23 @@ function App() {
     null
   );
 
+  //Load the correct answser for the current session
+  useEffect(() => {
+    const sessionAnswers = JSON.parse(
+      localStorage.getItem("quizAnswers") || "[]"
+    ); // [] - fallback default value
+    const sessionCurrentQuestionIndex = JSON.parse(
+      localStorage.getItem("sessionQuestionIndex") || "0"
+    );
+
+    if (sessionAnswers.length > 0) {
+      setAnswers(sessionAnswers);
+    }
+    if (sessionCurrentQuestionIndex) {
+      setCurrentQuestionIndex(sessionCurrentQuestionIndex);
+    }
+  }, []);
+
   const handleAnswer = (answer: Answer["answer"]) => {
     const newAnswers = [...answers];
     newAnswers[currentQuestionIndex] = {
@@ -83,6 +100,7 @@ function App() {
       answer,
     };
     setAnswers(newAnswers);
+    localStorage.setItem("quizAnswers", JSON.stringify(newAnswers));
   };
 
   const handleNext = () => {
@@ -98,6 +116,10 @@ function App() {
 
     if (currentQuestionIndex < initialQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
+      localStorage.setItem(
+        "sessionQuestionIndex",
+        JSON.stringify(currentQuestionIndex + 1)
+      );
     } else {
       setShowResults(true);
     }

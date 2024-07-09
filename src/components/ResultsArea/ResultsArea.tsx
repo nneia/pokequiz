@@ -10,6 +10,10 @@ const ResultsArea: React.FC<ResultsAreaProps> = ({ questions, answers }) => {
 
   function refreshPage() {
     window.location.reload();
+
+    // Clear local storage
+    localStorage.removeItem("sessionQuestionIndex");
+    localStorage.removeItem("quizAnswers");
   }
 
   return (
