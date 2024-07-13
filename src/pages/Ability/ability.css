@@ -1,0 +1,15 @@
+.ability-details-p {
+  box-sizing: border-box;
+  width: 76%;
+  margin-left: 12%;
+  margin-right: 12%;
+  margin-top: 1rem;
+  border-radius: 10px;
+  padding: 30px;
+  background-color: #645aa4;
+  overflow: hidden;
+  color: white;
+}
+.ability-details-p p {
+  padding-top: 1rem;
+}

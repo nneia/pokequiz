@@ -4,6 +4,11 @@
   position: relative;
   justify-content: space-between;
   margin-bottom: 10px;
+  box-sizing: border-box;
+  padding: 1rem;
+  padding-bottom: 0;
+  padding-left: 12%;
+  padding-right: 12%;
 }
 .question-nav {
   display: flex;

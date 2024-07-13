@@ -3,5 +3,5 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  base: "/pokequiz/", // Replace 'my-repo' with your repository name
+  base: "/", // Replace 'my-repo' with your repository name
 });

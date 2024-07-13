@@ -1,0 +1,38 @@
+.pokemon-details-p {
+  box-sizing: border-box;
+  width: 76%;
+  margin-left: 12%;
+  margin-right: 12%;
+  margin-top: 1rem;
+  border-radius: 10px;
+
+  background-color: #645aa4;
+  overflow: hidden;
+  color: white;
+}
+.details-wrap {
+  padding: 30px;
+}
+.pokemon-img-p {
+  width: 150px;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+}
+.name-p {
+  background-color: #313167;
+  color: white;
+  padding: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.pokemon-details-p p {
+  padding-top: 0.2rem;
+}
+h3 {
+  padding-top: 1rem;
+}
+li {
+  margin-left: 15px;
+}
