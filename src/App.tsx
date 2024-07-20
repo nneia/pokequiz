@@ -15,10 +15,13 @@ import Ability, { abilityLoader } from "./pages/Ability/ability.tsx";
 //layouts
 import RootLayout from "./layouts/RootLayout.tsx";
 
+// loaders
+import { pokemonListLoader } from "./loaders/pokemonListLoader.tsx";
+
 const myRouter = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route index element={<Home />} />
+      <Route index element={<Home />} loader={pokemonListLoader} />
       <Route path="quiz" element={<Quiz />} />
       <Route
         path="pokemon/:name"

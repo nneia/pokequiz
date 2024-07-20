@@ -1,12 +1,5 @@
-import React from "react";
 import "./pokemon.css";
-import {
-  Link,
-  useParams,
-  useLoaderData,
-  LoaderFunctionArgs,
-} from "react-router-dom";
-
+import { Link, useLoaderData, LoaderFunctionArgs } from "react-router-dom";
 export default function Pokemon() {
   const pokemon = useLoaderData() as any;
   console.log("loaded pokemon data:", pokemon); // Log the loaded data
@@ -54,7 +47,7 @@ export const pokemonLoader = async ({ params }: LoaderFunctionArgs) => {
   const { name } = params as { name: string };
 
   console.log("Fetching data for:", name); // Log the parameter used for fetching
-
+  // Loading = true
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
 
   //check for errors
@@ -65,5 +58,6 @@ export const pokemonLoader = async ({ params }: LoaderFunctionArgs) => {
 
   const data = await res.json();
   console.log("Fetched Pokémon data:", data); // Log the fetched data
+  // Loading = false
   return data;
 };

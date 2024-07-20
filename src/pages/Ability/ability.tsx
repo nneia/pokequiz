@@ -1,4 +1,3 @@
-import React from "react";
 import "./ability.css";
 import { useLoaderData, LoaderFunctionArgs } from "react-router-dom";
 
